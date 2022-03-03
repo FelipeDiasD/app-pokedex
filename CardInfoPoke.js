@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function CardInfo (){
     return(
     <View style = {styles.cardShowDesc}>
+        
         <Text style = {styles.textFormat}>
         
         It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.
