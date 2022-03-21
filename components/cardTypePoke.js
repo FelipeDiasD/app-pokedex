@@ -1,17 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, } from 'react-native';
 
 export default function CardType(){
     return(
     <View style = {styles.cardMoldure}>
+         
          <View style = {styles.cardShowType}>
         
-         <Text style = {styles.textFormat}>
-        
-        FIRE
-        
-        </Text>
+         
         </View>
     </View>
     )
@@ -20,10 +17,12 @@ export default function CardType(){
 const styles = StyleSheet.create({
     
     cardShowType: {
-      backgroundColor: 'gray',
+      backgroundColor:'#C4C4',
       justifyContent: 'center',
       alignContent: 'center',
-      borderRadius: 6,
+      borderRadius: 14,
+      borderColor: 'red',
+      borderWidth: 4,
       
       },
       cardMoldure:{
@@ -32,10 +31,7 @@ const styles = StyleSheet.create({
           alignContent: 'center',
           borderRadius: 6,
           padding: 4
+        }
 
-      },
-    textFormat:{
-        color : 'red',
-        fontSize: 35
-    }
+      
 })
