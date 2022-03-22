@@ -24,46 +24,54 @@ export default function App () {
 
 
   
-  const [pokemon, setPokemon] = useState(null)
+
+
+
+  const [pokemon, setPokemon] = useState('')
+
+ 
 
 useEffect(() => 
 
-    fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
 
-         .then((resposta) => resposta.json())
+         .then(resposta => resposta.json())
 
-         .then(json => {
-               const pokemonRetornado = {
-                     nome: json.name,
-  
-}
+         .then(json => { 
+           setPokemon({
+             nome: json.name,
+             img: json.sprites.other["official-artwork"].front_default
+        })
+      })
+      
 
-
-          setPokemon(pokemonRetornado)
-
-})
           .catch(() => {
-                Alert.alert('Erro', 'Não foi possível carregar os dados do Pokémon')})
-)
+                console.log(pokemon)})
+,[])
 
 
-
+console.log(pokemon.img)
     
  return (
     <View style={styles.container}>
-       
-        
-      
-      <CardImage/>
-      
-      <CardInfo Text = '${pokemon}'>
-        
-        <CardType/>
+
+   
+      <CardImage>
+
+        <Image source={{uri: pokemon.img}}
+               style = {styles.imgStyle} />
+    
+      </CardImage>
+
+
+      <CardInfo text = {`Nome = ${pokemon.nome}`}>
+         
+         <CardType/>
+         <Button style = {styles.buttonBckd} title='press' />
+
       </CardInfo>
 
-      <Button style = {styles.buttonBckd} title='press' >
-        
-      </Button>
+      
     
 
        
@@ -86,11 +94,17 @@ const styles = StyleSheet.create({
     
     width: 50,
     height: 50,
-    position: 'absolute',
-    left: 10,
+    //position: 'absolute',
+    //right: 10,
     backgroundColor: '#F51A16',
     color: '#F51A16'
+  },
+
+  imgStyle: {
+    width: 375,
+    height: 375
   }
+
  
  
   

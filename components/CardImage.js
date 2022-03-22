@@ -7,13 +7,15 @@ const cardImage = () => {
   return(
   <View style = {styles.imageContainer}>
 
-    </View>
+  </View>
     )
 }
 
 
 const styles = StyleSheet.create({
     imageContainer: {
+        alignContent: 'center',
+        justifyContent:'center',
         backgroundColor: '#C4C4C4',
         borderRadius: 14,
         width: 320,
