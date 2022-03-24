@@ -1,11 +1,15 @@
 
 import React, { useEffect } from 'react';
 import { useState} from 'react';
-import { Alert, StyleSheet, Text, View, Image, Button } from 'react-native';
+import { Alert, StyleSheet, Text, View, Image, Button, ScrollView } from 'react-native';
 
 import CardInfo from './components/CardInfoPoke';
 import CardType from './components/cardTypePoke';
 import CardImage from './components/CardImage';
+import ButtonNav from './components/ButtonNav';
+import NavBar from './components/NavBar';
+
+
 //array de objetos para armazenar os pokemóns
 const firsGenPoke = [
 {id: 1, nome: "Bulbassaur"},
@@ -25,7 +29,7 @@ export default function App () {
 
   
 
-
+//Isso vai ser usado depois
 
   const [pokemon, setPokemon] = useState('')
 
@@ -33,48 +37,56 @@ export default function App () {
 
 useEffect(() => 
 
-    fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
+    fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
 
          .then(resposta => resposta.json())
 
          .then(json => { 
            setPokemon({
              nome: json.name,
-             img: json.sprites.other["official-artwork"].front_default
+             img: json.sprites.front_default
         })
       })
       
 
           .catch(() => {
-                console.log(pokemon)})
+                console.log(pokemon.nome)})
 ,[])
 
 
-console.log(pokemon.img)
+//console.log(pokemon.name) 
     
  return (
     <View style={styles.container}>
-
+      
+      <ScrollView>
+        
    
-      <CardImage>
-
-        <Image source={{uri: pokemon.img}}
-               style = {styles.imgStyle} />
-    
-      </CardImage>
+      <CardImage text = {`${pokemon.img}`}/>
+      
 
 
       <CardInfo text = {`Nome = ${pokemon.nome}`}>
          
-         <CardType/>
-         <Button style = {styles.buttonBckd} title='press' />
+      <CardType/>
+    
 
       </CardInfo>
+      
+      <NavBar>
+          
+          <ButtonNav text = '->' style = {styles.buttonStyle}/>
+      
+      </NavBar>
+      
 
       
     
 
        
+
+      </ScrollView>
+
     
     </View>
   );
@@ -84,25 +96,22 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1, 
-    flexDirection: 'column',
-    justifyContent: 'center',
+    //flexDirection: 'column',
+    
+    //justifyContent: 'center',
+    padding: 10,
     alignItems: 'center',
     
   },
 
-  buttonBckd: {
-    
-    width: 50,
-    height: 50,
-    //position: 'absolute',
-    //right: 10,
-    backgroundColor: '#F51A16',
-    color: '#F51A16'
-  },
 
   imgStyle: {
-    width: 375,
-    height: 375
+    width: 200,
+    height: 200
+  },
+
+  buttonStyle:{
+    alignSelf: 'stretch'
   }
 
  

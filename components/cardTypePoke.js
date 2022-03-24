@@ -4,34 +4,25 @@ import { StyleSheet, Text, View, } from 'react-native';
 
 export default function CardType(){
     return(
-    <View style = {styles.cardMoldure}>
-         
-         <View style = {styles.cardShowType}>
         
-         
-        </View>
-    </View>
+        <View style = {styles.cardType}>
+
+        </View> 
     )
 }
 
 const styles = StyleSheet.create({
+    cardType:{
+        position: 'absolute',
+        right:0,
+        backgroundColor:'#FFFF',
+        borderRadius: 14,
+        marginVertical: 12,
+        width: 95,
+        height:212,
+        marginHorizontal:12
+    }
     
-    cardShowType: {
-      backgroundColor:'#C4C4',
-      justifyContent: 'center',
-      alignContent: 'center',
-      borderRadius: 14,
-      borderColor: 'red',
-      borderWidth: 4,
-      
-      },
-      cardMoldure:{
-          backgroundColor:'red',
-          justifyContent: 'center',
-          alignContent: 'center',
-          borderRadius: 6,
-          padding: 4
-        }
 
       
 })
