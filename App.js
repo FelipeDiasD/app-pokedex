@@ -11,40 +11,48 @@ import NavBar from './components/NavBar';
 
 
 //array de objetos para armazenar os pokemóns
-const firsGenPoke = [
-{id: 1, nome: "Bulbassaur"},
-{id: 2, nome: "Ivyssaur"},
-{id: 3, nome: "Venusaur"},
-{id: 4, nome: "Charmander"},
-{id: 5, nome: "Charmeleon"},
-{id: 6, nome: "Charizard"},
-{id: 7, nome: "Squirtle"},
-{id: 8, nome: "Wartotle"},
-{id: 9, nome: "Blastoise"}
-]
+
 
 
 export default function App () {
 
+  const firstGenPoke = [
+    {id: 1, nome: "Bulbassaur"},
+    {id: 2, nome: "Ivyssaur"},
+    {id: 3, nome: "Venusaur"},
+    {id: 4, nome: "Charmander"},
+    {id: 5, nome: "Charmeleon"},
+    {id: 6, nome: "Charizard"},
+    {id: 7, nome: "Squirtle"},
+    {id: 8, nome: "Wartotle"},
+    {id: 9, nome: "Blastoise"}
+    ]
 
   
 
 //Isso vai ser usado depois
 
+  const [idPokedex, setIdPokedex] = useState(firstGenPoke[0].id)
+
   const [pokemon, setPokemon] = useState('')
 
  
+ 
+  const endpoint = (`https://pokeapi.co/api/v2/pokemon/${idPokedex}`)
+ 
+  
 
 useEffect(() => 
 
-    fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+    fetch(endpoint)
 
          .then(resposta => resposta.json())
 
          .then(json => { 
            setPokemon({
              nome: json.name,
-             img: json.sprites.front_default
+             img: json.sprites.front_default,
+             tipo: json.types
         })
       })
       
@@ -52,6 +60,8 @@ useEffect(() =>
           .catch(() => {
                 console.log(pokemon.nome)})
 ,[])
+
+
 
 
 //console.log(pokemon.name) 
@@ -66,19 +76,29 @@ useEffect(() =>
       
 
 
-      <CardInfo text = {`Nome = ${pokemon.nome}`}>
+      <CardInfo text = {`Nome = ${pokemon.nome}
+Tipo = ${pokemon.tipo}`}>
          
       <CardType/>
     
 
       </CardInfo>
       
-      <NavBar>
+      
           
-          <ButtonNav text = '->' style = {styles.buttonStyle}/>
+          
+         
+            <Button title = 'next' 
+                    color = 'red'
+                    onPress = {() => {
+                      
+                      updatePokemon}}
+                      />
+          
+  
+
       
-      </NavBar>
-      
+            
 
       
     
@@ -96,9 +116,9 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1, 
-    //flexDirection: 'column',
+    flexDirection: 'column',
     
-    //justifyContent: 'center',
+    justifyContent: 'center',
     padding: 10,
     alignItems: 'center',
     
@@ -110,10 +130,7 @@ const styles = StyleSheet.create({
     height: 200
   },
 
-  buttonStyle:{
-    alignSelf: 'stretch'
-  }
-
+  
  
  
   

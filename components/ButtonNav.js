@@ -6,15 +6,7 @@ const ButtonNav = (props) =>{
 
 return(
 <View style = {styles.buttonFrame}>
-  <Button title = {props.text} >
-     <View>
-         <Text>
-            
-
-         </Text>
-    </View>
-    
-   </Button>
+   
 </View>
 
 )
@@ -22,17 +14,14 @@ return(
 
 const styles = StyleSheet.create({
     buttonFrame: {
-        //alignSelf: 'stretch',
-        position: 'absolute',
-        width: 135,
-        height: 20,
-        backgroundColor: 'white',
-        borderWidth: 0.7,
-        borderColor: 'black',
+        marginHorizontal: 16,
         margin: 5
         
 
     },
+    buttonStyle: {
+        borderRadius: 16
+    }
 }
 )
 

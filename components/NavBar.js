@@ -12,11 +12,14 @@ const NavBar = () => {
 
 const styles = StyleSheet.create({
     navBarContainer:{
+        alignSelf: 'center',
+        padding: 0.5,
         margin:5,
-        justifyContent: 'flex-start',
+        borderRadius: 14,
+        //justifyContent: 'flex-start',
         width: 320,
-        height: 30,
-        flexDirection: 'column', 
+        height: 60,
+       // flexDirection: 'column', 
         backgroundColor: 'red'     
     }
 })

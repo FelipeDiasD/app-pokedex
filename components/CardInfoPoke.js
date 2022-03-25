@@ -21,21 +21,21 @@ const styles = StyleSheet.create({
     
     cardInfo: {
       backgroundColor: '#F51A16',
-    
+      alignSelf: 'center',
       width: 320,
-      height: 235,
+      height: 250,
       borderRadius: 14,
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginTop:12
+      marginTop:6
       
 
     },
     cardStats:{
         padding: 8,
         position: 'absolute',
-        left: 0,
+        
         backgroundColor:'#C4C4C4',
         borderRadius: 14,
         width: 183,
