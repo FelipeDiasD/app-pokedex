@@ -3,9 +3,13 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 
-const cardImage = () => {
+const cardImage = (props) => {
   return(
   <View style = {styles.imageContainer}>
+      <Image style = {styles.image} source = {{ uri: props.text}}>
+          
+
+      </Image>
 
   </View>
     )
@@ -21,6 +25,10 @@ const styles = StyleSheet.create({
         width: 320,
         height: 464,
         marginTop: 24
+    },
+    image:{
+        width: 250,
+        height: 250
     }
 
 })
