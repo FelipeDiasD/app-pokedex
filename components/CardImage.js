@@ -11,6 +11,10 @@ const cardImage = (props) => {
 
       </Image>
 
+      <Image source ={{uri: props.text}} style = {styles.imageStyle}>
+
+      </Image>
+
   </View>
     )
 }
@@ -23,12 +27,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#C4C4C4',
         borderRadius: 14,
         width: 320,
-        height: 464,
-        marginTop: 24
+        height: 400,
+        marginTop: 16,
+        marginHorizontal: 16
     },
-    image:{
-        width: 250,
-        height: 250
+    imageStyle: {
+        alignSelf:'center',
+        width: 200,
+        height: 200,
+        
     }
 
 })

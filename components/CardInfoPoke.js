@@ -8,11 +8,11 @@ export default function CardInfo (props){
     <View style = {styles.cardInfo}>
         
         <View style = {styles.cardStats}>
-        <Text>
-            {props.text}
-        </Text>
+             <Text>
+               {props.text}
+             </Text>
         </View>
-        <View style = {styles.cardType}></View>   
+          
     </View>
     )
 }
@@ -21,40 +21,30 @@ const styles = StyleSheet.create({
     
     cardInfo: {
       backgroundColor: '#F51A16',
-    
+      alignSelf: 'center',
       width: 320,
-      height: 270,
+      height: 250,
       borderRadius: 14,
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginVertical: 12
+      marginTop:6
       
 
     },
     cardStats:{
         padding: 8,
         position: 'absolute',
-        left: 0,
+        
         backgroundColor:'#C4C4C4',
         borderRadius: 14,
         width: 183,
-        height:249,
+        height:212,
         marginHorizontal:12,
         //alignItems: 'center',
         justifyContent: 'flex-start'
         
 
-    },
-    cardType:{
-        position: 'absolute',
-        right:0,
-        backgroundColor:'#FFFF',
-        borderRadius: 14,
-        marginVertical: 12,
-        width: 95,
-        height:249,
-        marginHorizontal:12
     },
     textTitle:{
         fontWeight: 'bold',
