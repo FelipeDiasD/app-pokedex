@@ -4,11 +4,20 @@ import {StyleSheet, Text, View, Button} from 'react-native'
 
 const ButtonNav = (props) =>{
 
+
+
 return(
 <View style = {styles.buttonFrame}>
-   
-</View>
 
+
+        <Button title = {props.text}
+                color = 'red'
+                onPress={
+                    props.update
+                }
+                />
+
+</View>
 )
 }
 

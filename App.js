@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useState} from 'react';
-import { Alert, StyleSheet, Text, View, Image, Button, ScrollView } from 'react-native';
+import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
 
 import CardInfo from './components/CardInfoPoke';
 import CardType from './components/cardTypePoke';
@@ -32,10 +32,16 @@ export default function App () {
 
 //Isso vai ser usado depois
 
-  const [idPokedex, setIdPokedex] = useState(firstGenPoke[0].id)
+  const [idPokedex, setIdPokedex] = useState(1)
 
   const [pokemon, setPokemon] = useState('')
 
+  
+const idUp = () => {
+
+  setIdPokedex(idPokedex+1)
+
+}
  
  
   const endpoint = (`https://pokeapi.co/api/v2/pokemon/${idPokedex}`)
@@ -52,7 +58,7 @@ useEffect(() =>
            setPokemon({
              nome: json.name,
              img: json.sprites.front_default,
-             tipo: json.types
+             tipo: json.types[0].type
         })
       })
       
@@ -73,11 +79,12 @@ useEffect(() =>
         
    
       <CardImage text = {`${pokemon.img}`}/>
-      
+        
 
 
       <CardInfo text = {`Nome = ${pokemon.nome}
-Tipo = ${pokemon.tipo}`}>
+Tipo = ${pokemon.tipo}`}
+>
          
       <CardType/>
     
@@ -88,12 +95,11 @@ Tipo = ${pokemon.tipo}`}>
           
           
          
-            <Button title = 'next' 
-                    color = 'red'
-                    onPress = {() => {
+            <View>
+              <ButtonNav text = 'PREV'  />
+              <ButtonNav text = 'NEXT' update = {idUp} />
+            </View>
                       
-                      updatePokemon}}
-                      />
           
   
 
