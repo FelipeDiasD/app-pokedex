@@ -6,7 +6,8 @@
 
 * Tela principal:✅
 * Tela Inicial:🛠
-* Chamando e interagindo com a API: 🛠
+* Chamando e interagindo com a API:✅
+* Adicionar mais informações da API: 🛠
 * Finalização: 🛠
 
 
