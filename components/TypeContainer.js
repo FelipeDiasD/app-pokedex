@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
 
-export default function CardType(){
+export default function TypeContainer(){
     return(
         
         <View style = {styles.cardType}>
@@ -13,14 +13,14 @@ export default function CardType(){
 
 const styles = StyleSheet.create({
     cardType:{
-        position: 'absolute',
-        right:0,
-        backgroundColor:'#FFFF',
+        //position: 'absolute',
+        //right:0,
+        backgroundColor:'green',
         borderRadius: 14,
-        marginVertical: 12,
-        width: 95,
+        //marginVertical: 12,
+        width: 94,
         height:212,
-        marginHorizontal:12
+        //marginHorizontal:12
     }
     
 

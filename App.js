@@ -4,7 +4,7 @@ import { useState} from 'react';
 import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
 
 import CardInfo from './components/CardInfoPoke';
-import CardType from './components/cardTypePoke';
+import TypeCard from './components/TypeCardPoke';
 import CardImage from './components/CardImage';
 import ButtonNav from './components/ButtonNav';
 import NavBar from './components/NavBar';
@@ -37,12 +37,7 @@ export default function App () {
   const [pokemon, setPokemon] = useState('')
 
   
-const idUp = () => {
 
-  setIdPokedex(idPokedex+1)
-
-}
- 
  
   const endpoint = (`https://pokeapi.co/api/v2/pokemon/${idPokedex}`)
  
@@ -58,7 +53,7 @@ useEffect(() =>
            setPokemon({
              nome: json.name,
              img: json.sprites.front_default,
-             tipo: json.types[0].type
+             tipo: json.types[0].type.name
         })
       })
       
@@ -67,7 +62,18 @@ useEffect(() =>
                 console.log(pokemon.nome)})
 ,[])
 
+const idUp = () => {
 
+  setIdPokedex(idPokedex+1)
+
+}
+
+const idDown = () => {
+
+  setIdPokedex(idPokedex-1)
+
+}
+ 
 
 
 //console.log(pokemon.name) 
@@ -82,22 +88,26 @@ useEffect(() =>
         
 
 
-      <CardInfo text = {`Nome = ${pokemon.nome}
-Tipo = ${pokemon.tipo}`}
+      <CardInfo text = {`Name = ${pokemon.nome}`}
 >
          
-      <CardType/>
+         <TypeCard text = {`Type = ${pokemon.tipo}`}/>
+         
+       
     
 
       </CardInfo>
+
+     
       
       
           
           
          
             <View>
-              <ButtonNav text = 'PREV'  />
+              <ButtonNav text = 'PREV' update = {idDown} />
               <ButtonNav text = 'NEXT' update = {idUp} />
+              
             </View>
                       
           
@@ -132,8 +142,8 @@ const styles = StyleSheet.create({
 
 
   imgStyle: {
-    width: 200,
-    height: 200
+    width: 250,
+    height: 250
   },
 
   

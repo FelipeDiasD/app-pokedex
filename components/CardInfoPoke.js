@@ -8,9 +8,13 @@ export default function CardInfo (props){
     <View style = {styles.cardInfo}>
         
         <View style = {styles.cardStats}>
-             <Text>
+             <Text style = {styles.textTitle}>
                {props.text}
              </Text>
+        </View>
+
+        <View style = {styles.cardType}>
+
         </View>
           
     </View>
@@ -34,8 +38,7 @@ const styles = StyleSheet.create({
     },
     cardStats:{
         padding: 8,
-        position: 'absolute',
-        
+        //position: 'absolute',
         backgroundColor:'#C4C4C4',
         borderRadius: 14,
         width: 183,
@@ -45,9 +48,20 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
         
 
+    },cardType:{
+        //position: 'absolute',
+        //right:0,
+        backgroundColor:'#C4C4C4',
+        borderRadius: 14,
+        //marginVertical: 12,
+        width: 94,
+        height:212,
+        marginRight:12
     },
     textTitle:{
         fontWeight: 'bold',
-        textAlign:'center'
+        textAlign:'left',
+        fontSize: 16,
+        
     }
 })

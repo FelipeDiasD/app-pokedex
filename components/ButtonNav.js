@@ -12,9 +12,10 @@ return(
 
         <Button title = {props.text}
                 color = 'red'
-                onPress={
-                    props.update
+                onPress={ 
+                   props.update
                 }
+                style = {styles.buttonStyle}
                 />
 
 </View>
@@ -24,7 +25,8 @@ return(
 const styles = StyleSheet.create({
     buttonFrame: {
         marginHorizontal: 16,
-        margin: 5
+        margin: 5,
+        
         
 
     },
