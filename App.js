@@ -60,7 +60,7 @@ useEffect(() =>
 
           .catch(() => {
                 console.log(pokemon.nome)})
-,[])
+,[pokemon])
 
 const idUp = () => {
 
@@ -69,8 +69,10 @@ const idUp = () => {
 }
 
 const idDown = () => {
-
+  
+if(idPokedex !== 0){
   setIdPokedex(idPokedex-1)
+}
 
 }
  
@@ -83,26 +85,13 @@ const idDown = () => {
       
       <ScrollView>
         
-   
-      <CardImage text = {`${pokemon.img}`}/>
+       <CardImage text = {`${pokemon.img}`}/>
         
-
-
-      <CardInfo text = {`Name = ${pokemon.nome}`}
->
+       <CardInfo text = {`Name = ${pokemon.nome}`}
+>   
+        <TypeCard text = {`Type = ${pokemon.tipo}`}/>
          
-         <TypeCard text = {`Type = ${pokemon.tipo}`}/>
-         
-       
-    
-
-      </CardInfo>
-
-     
-      
-      
-          
-          
+       </CardInfo>
          
             <View>
               <ButtonNav text = 'PREV' update = {idDown} />
@@ -110,17 +99,6 @@ const idDown = () => {
               
             </View>
                       
-          
-  
-
-      
-            
-
-      
-    
-
-       
-
       </ScrollView>
 
     

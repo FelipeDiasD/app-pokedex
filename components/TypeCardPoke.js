@@ -17,6 +17,9 @@ const TypeCard = (props) => {
 
 const styles = StyleSheet.create({
     typeFrame: {
+        position: 'absolute',
+        width: 15,
+        height: 10,
         borderRadius: 16,
         backgroundColor: 'white',
 
