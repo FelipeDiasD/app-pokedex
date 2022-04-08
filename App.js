@@ -5,6 +5,7 @@ import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHigh
 
 import CardInfo from './components/CardInfoPoke';
 import TypeCard from './components/TypeCardPoke';
+import InfoFrame from './components/InfoFrame';
 import CardImage from './components/CardImage';
 import ButtonNav from './components/ButtonNav';
 import NavBar from './components/NavBar';
@@ -53,7 +54,8 @@ useEffect(() =>
            setPokemon({
              nome: json.name,
              img: json.sprites.front_default,
-             tipo: json.types[0].type.name
+             tipo1: json.types[0].type.name,
+             
         })
       })
       
@@ -69,10 +71,12 @@ const idUp = () => {
 }
 
 const idDown = () => {
-  
-if(idPokedex !== 0){
+
+  if(idPokedex === 1){
+    return false
+  }
   setIdPokedex(idPokedex-1)
-}
+
 
 }
  
@@ -86,15 +90,27 @@ if(idPokedex !== 0){
       <ScrollView>
         
        <CardImage text = {`${pokemon.img}`}/>
-        
-       <CardInfo text = {`Name = ${pokemon.nome}`}
->   
-        <TypeCard text = {`Type = ${pokemon.tipo}`}/>
+
+       <InfoFrame>
+       
+       
+       
+       <CardInfo text = {`Name = ${pokemon.nome}`}>   
+           
+           <TypeCard text = {`Type = ${pokemon.tipo1}`}/>
+          
+        </CardInfo>
+          
          
-       </CardInfo>
+
+       </InfoFrame>
+
+       
+       
          
             <View>
-              <ButtonNav text = 'PREV' update = {idDown} />
+              
+              <ButtonNav text = 'PREV' update = {idDown} disable = {idDown} />
               <ButtonNav text = 'NEXT' update = {idUp} />
               
             </View>
@@ -111,10 +127,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     flexDirection: 'column',
-    
+    alignContent: 'center',
     justifyContent: 'center',
     padding: 10,
     alignItems: 'center',
+    
     
   },
 

@@ -4,18 +4,22 @@ import {StyleSheet, Text, View, Button} from 'react-native'
 
 const ButtonNav = (props) =>{
 
-
+    if(props.disable == false){
+        styles.buttonStyle.color
+    }
 
 return(
 <View style = {styles.buttonFrame}>
 
 
         <Button title = {props.text}
-                color = 'red'
+                style = {styles.buttonStyle}
                 onPress={ 
                    props.update
                 }
-                style = {styles.buttonStyle}
+                disable = {props.disable}
+                
+                
                 />
 
 </View>
@@ -26,13 +30,16 @@ const styles = StyleSheet.create({
     buttonFrame: {
         marginHorizontal: 16,
         margin: 5,
+        borderRadius: 4,
+        
         
         
 
     },
     buttonStyle: {
-        borderRadius: 16
-    }
+        borderRadius: 16,
+        backgroundColor: 'red'
+    },
 }
 )
 
