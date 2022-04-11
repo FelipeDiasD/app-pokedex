@@ -24,14 +24,13 @@ export default function CardInfo (props){
 const styles = StyleSheet.create({
 
     cardInfo:{
-        padding: 8,
-        position: 'absolute',
-        backgroundColor: 'blue',
-        //backgroundColor:'#C4C4C4',
+        padding: 8,  
+        backgroundColor:'#C4C4C4',
         borderRadius: 14,
         width: 183,
         height:212,
-        marginHorizontal:12,
+        //marginVertical:12,
+        
         //alignItems: 'center',
         justifyContent: 'flex-start'
         

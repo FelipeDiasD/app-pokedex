@@ -51,10 +51,13 @@ useEffect(() =>
          .then(resposta => resposta.json())
 
          .then(json => { 
+           
+          
            setPokemon({
              nome: json.name,
              img: json.sprites.front_default,
              tipo1: json.types[0].type.name,
+             
              
         })
       })
@@ -91,15 +94,13 @@ const idDown = () => {
         
        <CardImage text = {`${pokemon.img}`}/>
 
-       <InfoFrame>
+       <InfoFrame text = {`
+Name: ${pokemon.nome} 
+Type: ${pokemon.tipo1}`}>
+  
        
        
        
-       <CardInfo text = {`Name = ${pokemon.nome}`}>   
-           
-           <TypeCard text = {`Type = ${pokemon.tipo1}`}/>
-          
-        </CardInfo>
           
          
 

@@ -13,11 +13,11 @@ export default function TypeContainer(){
 
 const styles = StyleSheet.create({
     cardType:{
-        //position: 'absolute',
-        //right:0,
-        backgroundColor:'green',
+       
+        
+        backgroundColor:'#C4C4C4',
         borderRadius: 14,
-        //marginVertical: 12,
+        //margin: 12,
         width: 94,
         height:212,
         //marginHorizontal:12

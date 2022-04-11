@@ -1,9 +1,15 @@
 import React from 'react'
 import {Text, View, StyleSheet } from 'react-native'
 
-const InfoFrame = () => {
+import CardInfo from './CardInfoPoke'
+import TypeContainer from './TypeContainer'
+
+const InfoFrame = (props) => {
     return(
         <View style = {styles.cardFrame}>
+
+            <CardInfo text = {props.text}/>
+            <TypeContainer/>
 
         </View>
     )
@@ -14,14 +20,15 @@ const InfoFrame = () => {
 
 const styles = StyleSheet.create({
 cardFrame: {
-    //opacity: 0.3,
+    
     backgroundColor: '#F51A16',
+    padding: 12,
     alignSelf: 'center',
     width: 320,
     height: 250,
     borderRadius: 14,
     flexDirection: 'row',
-    //justifyContent: 'space-between',
+    justifyContent: 'space-between',
     //alignItems: 'center',
     marginTop:6, 
     borderWidth: 2

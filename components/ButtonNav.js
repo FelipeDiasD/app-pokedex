@@ -28,6 +28,8 @@ return(
 
 const styles = StyleSheet.create({
     buttonFrame: {
+        color: 'red',
+        backgroundColor: 'red',
         marginHorizontal: 16,
         margin: 5,
         borderRadius: 4,
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
 
     },
     buttonStyle: {
+        color: 'red',
         borderRadius: 16,
         backgroundColor: 'red'
     },
