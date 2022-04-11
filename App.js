@@ -3,13 +3,10 @@ import React, { useEffect } from 'react';
 import { useState} from 'react';
 import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
 
-import CardInfo from './components/CardInfoPoke';
-import TypeCard from './components/TypeCardPoke';
+
 import InfoFrame from './components/InfoFrame';
 import CardImage from './components/CardImage';
 import ButtonNav from './components/ButtonNav';
-import NavBar from './components/NavBar';
-
 
 //array de objetos para armazenar os pokemóns
 
@@ -52,20 +49,30 @@ useEffect(() =>
 
          .then(json => { 
            
-          
+        
            setPokemon({
              nome: json.name,
              img: json.sprites.front_default,
              tipo1: json.types[0].type.name,
              
              
+          })
+
+          if (json.types[1].type.name !== undefined) {
+          
+           setPokemon({
+            nome: json.name,
+            img: json.sprites.front_default,
+            tipo1: json.types[0].type.name,
+            tipo2: json.types[1].type.name,
         })
-      })
+      }
       
+      })
 
           .catch(() => {
-                console.log(pokemon.nome)})
-,[pokemon])
+                console.log(pokemon.tipo2)}
+,[pokemon]))
 
 const idUp = () => {
 
@@ -96,7 +103,7 @@ const idDown = () => {
 
        <InfoFrame text = {`
 Name: ${pokemon.nome} 
-Type: ${pokemon.tipo1}`}>
+Type: ${pokemon.tipo1} + ${pokemon.tipo2}`}>
   
        
        
@@ -109,12 +116,12 @@ Type: ${pokemon.tipo1}`}>
        
        
          
-            <View>
+            
               
               <ButtonNav text = 'PREV' update = {idDown} disable = {idDown} />
               <ButtonNav text = 'NEXT' update = {idUp} />
               
-            </View>
+            
                       
       </ScrollView>
 
@@ -135,6 +142,13 @@ const styles = StyleSheet.create({
     
     
   },
+
+  buttonStyle: {
+    borderRadius: 12,
+    //color: 'red',
+    borderRadius: 16,
+    backgroundColor: 'red'
+},
 
 
   imgStyle: {
