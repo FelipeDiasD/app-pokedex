@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Button} from 'react-native'
+import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native'
 
 
 const ButtonNav = (props) =>{
@@ -9,9 +9,10 @@ const ButtonNav = (props) =>{
     }
 
 return(
-<View style = {styles.buttonFrame}>
+ 
 
-
+<TouchableOpacity style = {styles.buttonFrame}>
+    
         <Button title = {props.text}
                 style = {styles.buttonStyle}
                 onPress={ 
@@ -21,27 +22,31 @@ return(
                 
                 
                 />
+</TouchableOpacity>
 
-</View>
+
 )
 }
 
 const styles = StyleSheet.create({
     buttonFrame: {
-        color: 'red',
         backgroundColor: 'red',
         marginHorizontal: 16,
         margin: 5,
-        borderRadius: 4,
+        borderRadius: 12,
+        borderWidth: 3
         
         
         
 
     },
     buttonStyle: {
-        color: 'red',
+        
+        borderRadius: 12,
+        //color: 'red',
         borderRadius: 16,
-        backgroundColor: 'red'
+        backgroundColor: 'red',
+        
     },
 }
 )
