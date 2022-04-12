@@ -5,7 +5,7 @@ import {StyleSheet, View, Text} from 'react-native'
 
 const TypeCard = (props) => {
     return(
-        <View styles = {styles.cardType}>
+        
         
           <View style = {styles.typeFrame}>
             
@@ -14,33 +14,28 @@ const TypeCard = (props) => {
               </Text>
 
            </View>
-        </View>
+        
     )
 }
 
 const styles = StyleSheet.create({
     typeFrame: {
-        flex: 1,
-        //position: 'absolute',
-        //width: 15,
-        //height: 10,
-        borderRadius: 16,
-        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 85,
+        height: 40,
+        borderRadius: 14,
+        borderWidth: 2,
+        borderColor: 'red',
+        backgroundColor: '#929292',
+        fontVariant: ['small-caps']
 
     },
-    cardType:{
-        position: 'absolute',
-        backgroundColor:'#C4C4C4',
-        borderRadius: 14,
-        width: 94,
-        height:212,
-        marginRight:12,
-        borderWidth: 2
-    },
+    
     
     textType:{
             fontWeight: 'bold',
-            fontSize: 24
+            fontSize: 20
         }
 },
 

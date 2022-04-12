@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useState} from 'react';
 import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
 
 
 import InfoFrame from './components/InfoFrame';
@@ -50,23 +51,15 @@ useEffect(() =>
          .then(json => { 
            
         
-           setPokemon({
-             nome: json.name,
-             img: json.sprites.front_default,
-             tipo1: json.types[0].type.name,
-             
-             
-          })
-
-          if (json.types[1].type.name !== undefined) {
-          
+           
            setPokemon({
             nome: json.name,
             img: json.sprites.front_default,
             tipo1: json.types[0].type.name,
-            tipo2: json.types[1].type.name,
+            //tipo2: json.types[1].type.name
+            
         })
-      }
+      
       
       })
 
@@ -95,21 +88,17 @@ const idDown = () => {
 //console.log(pokemon.name) 
     
  return (
+
+<NavigationContainer>
+
+
     <View style={styles.container}>
       
       <ScrollView>
         
-       <CardImage text = {`${pokemon.img}`}/>
+        <CardImage text = {`${pokemon.img}`}/>
 
-       <InfoFrame text = {`
-Name: ${pokemon.nome} 
-Type: ${pokemon.tipo1} + ${pokemon.tipo2}`}>
-  
-       
-       
-       
-          
-         
+        <InfoFrame text = {`Name: ${pokemon.nome}`} textType = {`${pokemon.tipo1}`}>
 
        </InfoFrame>
 
@@ -118,7 +107,7 @@ Type: ${pokemon.tipo1} + ${pokemon.tipo2}`}>
          
             
               
-              <ButtonNav text = 'PREV' update = {idDown} disable = {idDown} />
+              <ButtonNav text = 'PREVIOUS' update = {idDown} disable = {idDown} />
               <ButtonNav text = 'NEXT' update = {idUp} />
               
             
@@ -127,6 +116,8 @@ Type: ${pokemon.tipo1} + ${pokemon.tipo2}`}>
 
     
     </View>
+ 
+</NavigationContainer>
   );
 }
 
@@ -139,6 +130,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     alignItems: 'center',
+    backgroundColor: '#D3D3D3'
     
     
   },

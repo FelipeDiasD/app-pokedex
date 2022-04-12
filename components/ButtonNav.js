@@ -11,18 +11,18 @@ const ButtonNav = (props) =>{
 return(
  
 
-<TouchableOpacity style = {styles.buttonFrame}>
-    
-        <Button title = {props.text}
-                style = {styles.buttonStyle}
-                onPress={ 
-                   props.update
-                }
-                disable = {props.disable}
+
+    <TouchableOpacity style = {styles.buttonStyle}  onPress={props.update} disable = {props.disable}>
+
+         <Text>
+             {props.text}
+         </Text>
+            
                 
-                
-                />
-</TouchableOpacity>
+     </TouchableOpacity>
+
+
+
 
 
 )
@@ -30,24 +30,29 @@ return(
 
 const styles = StyleSheet.create({
     buttonFrame: {
-        backgroundColor: 'red',
-        marginHorizontal: 16,
-        margin: 5,
-        borderRadius: 12,
-        borderWidth: 3
+        
+        
         
         
         
 
     },
     buttonStyle: {
-        
+        height: 30,
         borderRadius: 12,
-        //color: 'red',
-        borderRadius: 16,
         backgroundColor: 'red',
+        marginHorizontal: 16,
+        margin: 5,
+        borderRadius: 12,
+        borderWidth: 3,
+        borderColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center'
+                
         
     },
+  
 }
 )
 

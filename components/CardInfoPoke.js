@@ -8,9 +8,11 @@ export default function CardInfo (props){
     <View style = {styles.cardFrame}>
         
         <View style = {styles.cardInfo}>
+
              <Text style = {styles.textTitle}>
                {props.text}
              </Text>
+
         </View>
 
         <View style = {styles.cardType}>
@@ -25,12 +27,13 @@ const styles = StyleSheet.create({
 
     cardInfo:{
         padding: 8,  
-        backgroundColor:'#C4C4C4',
+        backgroundColor:'#9E9E9E',
         borderRadius: 14,
         width: 183,
         height:212,
         //marginVertical:12,
-        
+        borderColor: 'black',
+        borderWidth: 2,
         //alignItems: 'center',
         justifyContent: 'flex-start'
         

@@ -9,7 +9,7 @@ const InfoFrame = (props) => {
         <View style = {styles.cardFrame}>
 
             <CardInfo text = {props.text}/>
-            <TypeContainer/>
+            <TypeContainer text = {props.textType}/>
 
         </View>
     )
@@ -31,7 +31,8 @@ cardFrame: {
     justifyContent: 'space-between',
     //alignItems: 'center',
     marginTop:6, 
-    borderWidth: 2
+    borderWidth: 2,
+    borderColor: 'white'
     
     
   }
