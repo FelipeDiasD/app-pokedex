@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 85,
-        height: 40,
+        height: 80,
         borderRadius: 14,
         borderWidth: 2,
         borderColor: 'red',
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     
     textType:{
             fontWeight: 'bold',
-            fontSize: 20
+            fontSize: 12
         }
 },
 

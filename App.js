@@ -36,7 +36,6 @@ export default function App () {
   const [pokemon, setPokemon] = useState('')
 
   
-
  
   const endpoint = (`https://pokeapi.co/api/v2/pokemon/${idPokedex}`)
  
@@ -55,8 +54,7 @@ useEffect(() =>
            setPokemon({
             nome: json.name,
             img: json.sprites.front_default,
-            tipo1: json.types[0].type.name,
-            //tipo2: json.types[1].type.name
+            tipos: json.types
             
         })
       
@@ -64,8 +62,11 @@ useEffect(() =>
       })
 
           .catch(() => {
-                console.log(pokemon.tipo2)}
+                console.log(pokemon.types)}
 ,[pokemon]))
+
+
+
 
 const idUp = () => {
 
@@ -82,10 +83,11 @@ const idDown = () => {
 
 
 }
- 
 
 
-//console.log(pokemon.name) 
+//
+
+//console.log(pokemon.tipos) 
     
  return (
 
@@ -98,7 +100,7 @@ const idDown = () => {
         
         <CardImage text = {`${pokemon.img}`}/>
 
-        <InfoFrame text = {`Name: ${pokemon.nome}`} textType = {`${pokemon.tipo1}`}>
+        <InfoFrame text = {`Name: ${pokemon.nome}`} textType = {`${pokemon?.tipos?.map(tipo => tipo?.type?.name)}`} >
 
        </InfoFrame>
 
