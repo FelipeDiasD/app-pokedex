@@ -6,6 +6,18 @@ import TypeCard from './TypeCardPoke'
 
 export default function TypeContainer(props){
 
+
+    /*switch(props.text){
+        case 'water':
+            styles.cardType.backgroundColor = 'blue'
+        case 'fire':
+            styles.cardType.backgroundColor = 'red'
+        case 'grass':
+            styles.cardType.backgroundColor = 'green'
+        case 'bug':
+            styles.cardType.backgroundColor = 'brown'            
+    }*/
+
     return(
         
         <View style = {styles.cardType}>
