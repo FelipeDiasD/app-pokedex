@@ -20,7 +20,7 @@ const TypeCard = (props) => {
 
 const styles = StyleSheet.create({
     typeFrame: {
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         width: 85,
         height: 80,
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     
     textType:{
             fontWeight: 'bold',
-            fontSize: 12
+            fontSize: 14,
+            textTransform: 'uppercase'
         }
 },
 

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         //marginHorizontal:12
     }
     
+    
 
       
 })
