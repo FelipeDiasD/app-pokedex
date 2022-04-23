@@ -1,32 +1,17 @@
 
 import React, { useEffect } from 'react';
 import { useState} from 'react';
-import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, TouchableHighlight } from 'react-native';
+import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, StatusBar} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
 
-import CardInfo from './components/CardInfoPoke';
-import CardType from './components/cardTypePoke';
+
+import InfoFrame from './components/InfoFrame';
 import CardImage from './components/CardImage';
 import ButtonNav from './components/ButtonNav';
-import NavBar from './components/NavBar';
-
-
-//array de objetos para armazenar os pokemóns
-
 
 
 export default function App () {
 
-  const firstGenPoke = [
-    {id: 1, nome: "Bulbassaur"},
-    {id: 2, nome: "Ivyssaur"},
-    {id: 3, nome: "Venusaur"},
-    {id: 4, nome: "Charmander"},
-    {id: 5, nome: "Charmeleon"},
-    {id: 6, nome: "Charizard"},
-    {id: 7, nome: "Squirtle"},
-    {id: 8, nome: "Wartotle"},
-    {id: 9, nome: "Blastoise"}
-    ]
 
   
 
@@ -37,13 +22,6 @@ export default function App () {
   const [pokemon, setPokemon] = useState('')
 
   
-const idUp = () => {
-
-  setIdPokedex(idPokedex+1)
- 
-  
-}
- 
  
   const endpoint = (`https://pokeapi.co/api/v2/pokemon/${idPokedex}`)
  
@@ -65,74 +43,90 @@ useEffect(() =>
 }
 
          .then(json => { 
+           
+        
+           
            setPokemon({
-             nome: json.name,
-             img: json.sprites.front_default,
-             tipo: json.types[0].type
+            nome: json.name,
+            img: json.sprites.other['official-artwork'].front_default,
+            tipos: json.types,
+            altura: json.height,
+            peso: json.weight
+            
         })
-      })
       
+      
+      })
 
           setPokemon(pokemonRetornado)
 
 })
           .catch(() => {
-                console.log(pokemon.nome)})
-
-
-                
-,[])
+                console.log(pokemon.types)}
+,[pokemon]))
 
 
 
 
-//console.log(pokemon.name) 
+const idUp = () => {
+
+  setIdPokedex(idPokedex+1)
+
+}
+
+const idDown = () => {
+
+  if(idPokedex === 1){
+    return false
+  }
+  setIdPokedex(idPokedex-1)
+
+
+}
+
+
+//
+
+//console.log(pokemon.tipos) 
     
  return (
+
+  
+
+<NavigationContainer>
+  
+  <StatusBar hidden = {true}/>
+    
+
+  
+
     <View style={styles.container}>
       
       <ScrollView>
         
-   
-      <CardImage text = {`${pokemon.img}`}/>
-        
+        <CardImage text = {`${pokemon.img}`}/>
 
+        <InfoFrame text = {` Name: ${pokemon.nome} \n Weight: ${(pokemon.peso * 0.1).toFixed(2)} kg \n Height: ${(pokemon.altura * 10)} cm`} 
+        textType = {`${(pokemon?.tipos?.map(tipo => `\n ${(tipo?.type?.name)}`))}`} >
 
-      <CardInfo text = {`Nome = ${pokemon.nome}
-Tipo = ${pokemon.tipo}`}
->
-         
-      <CardType/>
-    
-
-      </CardInfo>
-      
-      
-          
-          
-         
-            <View>
-              <ButtonNav text = 'PREV'  />
-              <ButtonNav text = 'NEXT' update = {idUp} />
-            </View>
-                      
-          
-  
-
-      
-            
-
-      
-        
-   
-    
+       </InfoFrame>
 
        
-
+       
+         
+            
+              
+              <ButtonNav text = 'PREVIOUS' update = {idDown} disable = {idDown} />
+              <ButtonNav text = 'NEXT' update = {idUp} />
+              
+            
+                      
       </ScrollView>
 
     
     </View>
+ 
+</NavigationContainer>
   );
 }
 
@@ -141,17 +135,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
     flexDirection: 'column',
-    
+    alignContent: 'center',
     justifyContent: 'center',
     padding: 10,
     alignItems: 'center',
+    backgroundColor: '#D3D3D3'
+    
     
   },
 
+  buttonStyle: {
+    borderRadius: 12,
+    //color: 'red',
+    borderRadius: 16,
+    backgroundColor: 'red'
+},
+
 
   imgStyle: {
-    width: 200,
-    height: 200
+    width: 250,
+    height: 250
   },
 
   

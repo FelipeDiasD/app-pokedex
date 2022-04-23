@@ -5,12 +5,18 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function CardInfo (props){
     
     return(
-    <View style = {styles.cardInfo}>
+    <View style = {styles.cardFrame}>
         
-        <View style = {styles.cardStats}>
-             <Text>
+        <View style = {styles.cardInfo}>
+
+             <Text style = {styles.textTitle}>
                {props.text}
              </Text>
+
+        </View>
+
+        <View style = {styles.cardType}>
+
         </View>
           
     </View>
@@ -18,36 +24,27 @@ export default function CardInfo (props){
 }
 
 const styles = StyleSheet.create({
-    
-    cardInfo: {
-      backgroundColor: '#F51A16',
-      alignSelf: 'center',
-      width: 320,
-      height: 250,
-      borderRadius: 14,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginTop:6
-      
 
-    },
-    cardStats:{
-        padding: 8,
-        position: 'absolute',
-        
-        backgroundColor:'#C4C4C4',
+    cardInfo:{
+        padding: 8,  
+        backgroundColor:'#9E9E9E',
         borderRadius: 14,
         width: 183,
         height:212,
-        marginHorizontal:12,
+        //marginVertical:12,
+        borderColor: 'black',
+        borderWidth: 2,
         //alignItems: 'center',
         justifyContent: 'flex-start'
         
 
+    
     },
     textTitle:{
         fontWeight: 'bold',
-        textAlign:'center'
+        textAlign:'left',
+        fontSize: 16,
+        textTransform: 'uppercase'
+        
     }
 })

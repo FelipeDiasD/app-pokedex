@@ -1,36 +1,58 @@
 import React from 'react'
-import {StyleSheet, Text, View, Button} from 'react-native'
+import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native'
 
 
 const ButtonNav = (props) =>{
 
-
+    if(props.disable == false){
+        styles.buttonStyle.color
+    }
 
 return(
-<View style = {styles.buttonFrame}>
+ 
 
 
-        <Button title = {props.text}
-                color = 'red'
-                onPress={
-                    props.update
-                }
-                />
+    <TouchableOpacity style = {styles.buttonStyle}  onPress={props.update} disable = {props.disable}>
 
-</View>
+         <Text>
+             {props.text}
+         </Text>
+            
+                
+     </TouchableOpacity>
+
+
+
+
+
 )
 }
 
 const styles = StyleSheet.create({
     buttonFrame: {
-        marginHorizontal: 16,
-        margin: 5
+        
+        
+        
+        
         
 
     },
     buttonStyle: {
-        borderRadius: 16
-    }
+        height: 30,
+        borderRadius: 12,
+        backgroundColor: 'red',
+        marginHorizontal: 16,
+        margin: 5,
+        borderRadius: 12,
+        borderWidth: 3,
+        borderColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center'
+                
+        
+    },
+  
 }
 )
 
