@@ -40,7 +40,8 @@ export default function App () {
 const idUp = () => {
 
   setIdPokedex(idPokedex+1)
-
+ 
+  
 }
  
  
@@ -49,6 +50,8 @@ const idUp = () => {
   
 
 useEffect(() => 
+
+
 
     fetch(endpoint)
 
@@ -75,6 +78,9 @@ useEffect(() =>
 })
           .catch(() => {
                 console.log(pokemon.nome)})
+
+
+                
 ,[])
 
 
