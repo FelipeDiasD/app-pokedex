@@ -6,6 +6,10 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 const cardImage = (props) => {
   return(
   <View style = {styles.imageContainer}>
+      <Image style = {styles.image} source = {{ uri: props.text}}>
+          
+
+      </Image>
 
       <Image source ={{uri: props.text}} style = {styles.imageStyle}>
 
