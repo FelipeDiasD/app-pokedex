@@ -5,9 +5,9 @@ import { Alert, StyleSheet, Text, View, Image, Button, ScrollView, StatusBar} fr
 import { NavigationContainer } from '@react-navigation/native'
 
 
-import InfoFrame from '/components/InfoFrame';
-import CardImage from '/components/CardImage';
-import ButtonNav from '/components/ButtonNav';
+import InfoFrame from '';
+import CardImage from '';
+import ButtonNav from '';
 
 
 export default function Details () {
