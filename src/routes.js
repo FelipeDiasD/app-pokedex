@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import Home from './home/Home'
 import Users from './users/DetailsPoke'
-import DetailsPoke from './users/DetailsPoke'
+import DetailsPoke from './details/DetailsPoke'
 
 const Stack = createNativeStackNavigator()
 
