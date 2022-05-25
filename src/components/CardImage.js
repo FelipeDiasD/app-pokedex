@@ -1,20 +1,32 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Alert } from 'react-native'
+import { TouchableOpacity } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+import ButtonScreenChange from './ButtonScreenChange'
 
 const cardImage = props => {
   return (
     <View style={styles.imageContainer}>
-      <Image style={styles.image} source={{ uri: props.text }}></Image>
-
-      <Image source={{ uri: props.text }} style={styles.imageStyle}></Image>
+      <TouchableOpacity
+        style={styles.imagePressableContainer}
+        onPress={() => props.nav.navigate('Details')}
+      >
+        <Image
+          source={{ uri: props.text }}
+          style={styles.imageStyle}
+          resizeMode="contain"
+        />
+      </TouchableOpacity>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   imageContainer: {
-    alignContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#C4C4C4',
     borderRadius: 14,
@@ -24,10 +36,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     borderWidth: 2
   },
+  imagePressableContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '65%',
+    height: '65%'
+  },
   imageStyle: {
-    alignSelf: 'center',
-    width: 200,
-    height: 200
+    width: '70%',
+    height: '70%'
   }
 })
 

@@ -8,8 +8,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import InfoFrame from '../components/InfoFrame'
 import CardImage from '../components/CardImage'
 import ButtonNav from '../components/ButtonNav'
+import { TouchableOpacity } from 'react-native'
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [idPokedex, setIdPokedex] = useState(1)
 
   const [pokemon, setPokemon] = useState('')
@@ -19,14 +20,18 @@ const Home = () => {
   useEffect(() =>
     fetch(endpoint)
       .then(resposta => resposta.json())
-
+      //versions['generation-iv'].diamond-pearl.front_default
+      //other['dream-world'].front_default
       .then(json => {
         setPokemon({
+          id: json.id,
           nome: json.name,
-          img: json.sprites.other['official-artwork'].front_default,
+          img: json.sprites.versions['generation-v']['black-white']['animated']
+            .front_default,
           tipos: json.types,
           altura: json.height,
-          peso: json.weight
+          peso: json.weight,
+          location: json.location_area_encounters
         })
       })
 
@@ -46,21 +51,35 @@ const Home = () => {
     setIdPokedex(idPokedex - 1)
   }
 
-  //
+  //{pokemon?.tipos?.map(tipo => `\n ${tipo?.type?.name}`)
 
   //console.log(pokemon.tipos)
+
+  function convertWeighttoKg(weight) {
+    return (weight * 0.1).toFixed(2)
+  }
+
+  function convertHeighttoCm(heigth) {
+    return (heigth * 10).toFixed(2)
+  }
+
+  const extractTypes = () => {
+    pokemon?.tipo?.map(tipos => `${tipo?.type?.name}`)
+  }
 
   return (
     <View style={styles.container}>
       <StatusBar hidden={true} />
 
-      <CardImage text={`${pokemon.img}`} />
+      <CardImage text={`${pokemon.img}`} nav = {navigation} />
 
       <InfoFrame
-        text={` Name: ${pokemon.nome} \n Weight: ${(pokemon.peso * 0.1).toFixed(
-          2
-        )} kg \n Height: ${pokemon.altura * 10} cm`}
-        textType={`${pokemon?.tipos?.map(tipo => `\n ${tipo?.type?.name}`)}`}
+        text={` Nº: ${pokemon.id} \n Nome: ${
+          pokemon.nome
+        } \n Peso: ${convertWeighttoKg(
+          pokemon.peso
+        )} kg \n Altura: ${convertHeighttoCm(pokemon.altura)} cm`}
+        textType={pokemon?.tipos?.map(tipo => `\n ${tipo?.type?.name}`)}
       />
 
       <ButtonNav text="PREVIOUS" update={idDown} disable={idDown} />
@@ -91,6 +110,13 @@ const styles = StyleSheet.create({
   imgStyle: {
     width: 250,
     height: 250
+  },
+
+  imagePressableContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 320,
+    height: 400
   }
 })
 export default Home

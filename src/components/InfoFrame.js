@@ -7,7 +7,7 @@ import TypeContainer from './TypeContainer'
 const InfoFrame = props => {
   return (
     <View style={styles.cardFrame}>
-      <CardInfo text={props.text} />
+      <CardInfo text={props.text} style={styles.textStyle} />
       <TypeContainer text={props.textType} />
     </View>
   )
@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
     marginTop: 6,
     borderWidth: 2,
     borderColor: 'white'
-  }
+  },
+
+  
 })
 
 export default InfoFrame

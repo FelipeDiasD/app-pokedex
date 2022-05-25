@@ -28,9 +28,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
   },
   textTitle: {
+    alignContent: 'flex-start',
+    fontSize: 14,
+    textTransform: 'uppercase',
     fontWeight: 'bold',
-    textAlign: 'left',
-    fontSize: 16,
-    textTransform: 'uppercase'
+    lineHeight: 25
   }
 })

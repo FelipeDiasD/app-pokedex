@@ -2,7 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 
 import Home from './home/Home'
-import Users from './users/Users'
+import Users from './users/DetailsPoke'
+import DetailsPoke from './users/DetailsPoke'
 
 const Stack = createNativeStackNavigator()
 
@@ -13,11 +14,13 @@ function Routes() {
         name="Home"
         component={Home}
         options={{
-          title: 'Pokedéx'
+          title: 'Pokedéx',
+          headerTitleAlign: 'center',
+          headerTintColor: 'red'
         }}
       />
 
-      <Stack.Screen name="Users" component={Users} />
+      <Stack.Screen name="Details" component={DetailsPoke} />
     </Stack.Navigator>
   )
 }
