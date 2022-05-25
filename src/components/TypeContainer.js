@@ -5,7 +5,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import TypeCard from './TypeCardPoke'
 
 export default function TypeContainer(props) {
-  /*switch(props.text){
+  
+  /*switch(props.text.slice???split???){
         case 'water':
             styles.cardType.backgroundColor = 'blue'
         case 'fire':
@@ -13,7 +14,8 @@ export default function TypeContainer(props) {
         case 'grass':
             styles.cardType.backgroundColor = 'green'
         case 'bug':
-            styles.cardType.backgroundColor = 'brown'            
+            styles.cardType.backgroundColor = 'brown' 
+        case ''               
     }*/
 
   return (
@@ -35,5 +37,43 @@ const styles = StyleSheet.create({
     width: 94,
     height: 212
     //marginHorizontal:12
+  },
+  cardWater:{
+
+  },
+  cardFire: {
+
+  },
+
+  cardRock: {
+
+  },
+
+  cardFly: {
+
+  },
+
+  cardNormal: {
+
+  },
+
+  cardFight: {
+
+  },
+
+  cardGrass: {
+
+  },
+   
+  cardDragon: {
+
+  },
+
+  cardPsych: {
+
+  },
+
+  cardDark: {
+
   }
 })
