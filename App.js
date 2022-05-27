@@ -3,22 +3,10 @@ import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 
 import Routes from './src/routes'
-//
-//function App() {
-//  return (
-//    <NavigationNativeContainer>
-//      <Routes />
-//    </NavigationNativeContainer>
-//  )
-//}
-//
-
-//
-//export default App
 
 function App() {
   return (
-    <NavigationContainer  styles={styles.container}>
+    <NavigationContainer>
       <Routes />
     </NavigationContainer>
   )

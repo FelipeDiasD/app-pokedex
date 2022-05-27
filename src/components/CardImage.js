@@ -1,13 +1,10 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, Text, View, Image, Alert } from 'react-native'
 import { TouchableOpacity } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import ButtonScreenChange from './ButtonScreenChange'
 
-const cardImage = props => {
+
+const CardImage = props => {
   return (
     <View style={styles.imageContainer}>
       <TouchableOpacity
@@ -48,4 +45,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default cardImage
+export default CardImage

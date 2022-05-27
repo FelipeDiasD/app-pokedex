@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { useState } from 'react'
-import { View, Image, Text, ScrollView, StyleSheet, Button } from 'react-native'
 
-import { NavigationContainer } from '@react-navigation/native'
+import { View, StyleSheet } from 'react-native'
 
 import InfoFrame from '../components/InfoFrame'
 import CardImage from '../components/CardImage'
 import ButtonNav from '../components/ButtonNav'
-import { TouchableOpacity } from 'react-native'
 
 const Home = ({ navigation }) => {
   const [idPokedex, setIdPokedex] = useState(1)
@@ -71,7 +68,7 @@ const Home = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar hidden={true} />
 
-      <CardImage text={`${pokemon.img}`} nav = {navigation} />
+      <CardImage text={`${pokemon.img}`} nav={navigation} />
 
       <InfoFrame
         text={` Nº: ${pokemon.id} \n Nome: ${
